@@ -43,7 +43,7 @@ const HomeScreen = ({
         <Text>-</Text>
       </TouchableNativeFeedback>
     </View>
-  </View>
+  </View> 
 );
 
 HomeScreen.navigationOptions = () => ({
