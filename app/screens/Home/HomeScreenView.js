@@ -10,6 +10,8 @@ import T from 'prop-types';
 import s from './styles';
 import { observer } from 'mobx-react/custom';
 
+import { TodoItem } from '../../components';
+
 const HomeScreen = ({
   textInputValue,
   setTextInputValue,
@@ -28,19 +30,33 @@ const HomeScreen = ({
         <Text>Add</Text>
       </TouchableNativeFeedback>
     </View>
-    <View>
-      {todoList.map((item) => (
-        <TouchableNativeFeedback
+    {/* <View> */}
+    <FlatList
+      data={todoList}
+      renderItem={({ item }) => <TodoItem item={item} />}
+      keyExtractor={(item) => item.id}
+    />
+  </View>
+);
+// </View>
+{
+  /* {todoList.map((item) => ( */
+}
+{
+  /* <TodoItem /> */
+}
+{
+  /* <TouchableNativeFeedback
           onPress={() => item.toggleCompleted(item.id)}
         >
           <Text style={[s.todo, item.completed && s.completed]}>
             {item.text}
           </Text>
-        </TouchableNativeFeedback>
-      ))}
-    </View>
-  </View>
-);
+        </TouchableNativeFeedback> */
+}
+{
+  /* ))} */
+}
 
 HomeScreen.navigationOptions = () => ({
   title: 'Home',
