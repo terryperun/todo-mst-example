@@ -1,20 +1,10 @@
 import { types } from 'mobx-state-tree';
-
+import { TodoStore } from './TodoStore';
 export const RootStore = types
   .model({
-    count: 0,
+    todo: types.optional(TodoStore, {}),
   })
 
   .actions((store) => ({
-    increment() {
-      store.count += 1;
-    },
-
-    decrement() {
-      store.count -= 1;
-    },
-
-    bootstrap(initialValue) {
-      store.count = initialValue;
-    },
+    bootstrap(initialValue) {},
   }));

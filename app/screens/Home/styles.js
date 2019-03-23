@@ -3,11 +3,21 @@ import { StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
+
+    justifyContent: 'flex-start',
+
+    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  inputContainer: {
     flexDirection: 'row',
   },
-  buttons: {
+  todo: {},
+  completed: {
+    textDecorationLine: 'line-through',
+  },
+  button: {
+    marginTop: 16,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -15,19 +25,7 @@ export default StyleSheet.create({
     margin: 16,
   },
 
-  buttonPlus: {
-    margin: 16,
-  },
-
-  buttonMinus: {
-    margin: 16,
-  },
-
   input: {
-    margin: 16,
-  },
-
-  button: {
     margin: 16,
   },
 });

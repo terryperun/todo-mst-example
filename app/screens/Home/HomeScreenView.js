@@ -4,6 +4,7 @@ import {
   Text,
   TextInput,
   TouchableNativeFeedback,
+  FlatList,
 } from 'react-native';
 import T from 'prop-types';
 import s from './styles';
@@ -12,38 +13,31 @@ import { observer } from 'mobx-react/custom';
 const HomeScreen = ({
   textInputValue,
   setTextInputValue,
-  count,
-  increment,
-  decrement,
+  todoList,
+  addTodo,
 }) => (
   <View style={s.container}>
-    {/* <TextInput
-      placeholder="Collection name"
-      style={s.input}
-      value={textInputValue}
-      onChangeText={setTextInputValue}
-    />
-    <View style={s.button}>
-      <Text>Add</Text>
-    </View> */}
-    <View style={s.count}>
-      <Text>Count {count}</Text>
-    </View>
-    <View style={s.buttons}>
-      <TouchableNativeFeedback
-        style={s.buttonPlus}
-        onPress={increment}
-      >
-        <Text>+</Text>
-      </TouchableNativeFeedback>
-      <TouchableNativeFeedback
-        style={s.buttonMinus}
-        onPress={decrement}
-      >
-        <Text>-</Text>
+    <View style={s.inputContainer}>
+      <TextInput
+        placeholder="Collection name"
+        style={s.input}
+        value={textInputValue}
+        onChangeText={setTextInputValue}
+      />
+      <TouchableNativeFeedback style={s.button} onPress={addTodo}>
+        <Text>Add</Text>
       </TouchableNativeFeedback>
     </View>
-  </View> 
+    <View>
+      {todoList.map((item) => (
+        <TouchableNativeFeedback onPress={item.toggleCompleted()}>
+          <Text style={[s.todo, item.completed && s.completed]}>
+            {item.text}
+          </Text>
+        </TouchableNativeFeedback>
+      ))}
+    </View>
+  </View>
 );
 
 HomeScreen.navigationOptions = () => ({

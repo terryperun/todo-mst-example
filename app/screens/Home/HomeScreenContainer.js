@@ -4,16 +4,16 @@ import { inject, observer } from 'mobx-react/custom';
 
 export default compose(
   inject((props) => ({
-    increment: props.store.increment,
-    decrement: props.store.decrement,
-    count: props.store.count,
+    todoList: props.todo.asArray,
+    addTodo: props.todo.add,
   })),
   observer,
-  // withState('textInputValue', 'setTextInputValue', ''),
-  // withState('list', 'setList', []),
-  // withHandlers({
-  //   addToList: (props) => () => {
-  //     props.setList
-  //   }
-  // })
+  withState('textInputValue', 'setTextInputValue', ''),
+
+  withHandlers({
+    addTodo: (props) => () => {
+      props.addTodo(props.textInputValue);
+      props.setTextInputValue('');
+    },
+  }),
 )(HomeScreenComponent);

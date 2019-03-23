@@ -9,7 +9,7 @@ const store = createStore();
 store.bootstrap(0);
 
 const App = () => (
-  <Provider store={store}>
+  <Provider root={store} {...store}>
     <RootNavigator />
   </Provider>
 );
