@@ -30,7 +30,6 @@ const HomeScreen = ({
         <Text>Add</Text>
       </TouchableNativeFeedback>
     </View>
-    {/* <View> */}
     <FlatList
       data={todoList}
       renderItem={({ item }) => <TodoItem item={item} />}
@@ -38,32 +37,9 @@ const HomeScreen = ({
     />
   </View>
 );
-// </View>
-{
-  /* {todoList.map((item) => ( */
-}
-{
-  /* <TodoItem /> */
-}
-{
-  /* <TouchableNativeFeedback
-          onPress={() => item.toggleCompleted(item.id)}
-        >
-          <Text style={[s.todo, item.completed && s.completed]}>
-            {item.text}
-          </Text>
-        </TouchableNativeFeedback> */
-}
-{
-  /* ))} */
-}
 
 HomeScreen.navigationOptions = () => ({
   title: 'Home',
 });
-
-// HomeScreen.propTypes = {
-//   user: T.object.isRequired,
-// };
 
 export default observer(HomeScreen);
