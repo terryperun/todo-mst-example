@@ -30,7 +30,9 @@ const HomeScreen = ({
     </View>
     <View>
       {todoList.map((item) => (
-        <TouchableNativeFeedback onPress={item.toggleCompleted()}>
+        <TouchableNativeFeedback
+          onPress={() => item.toggleCompleted(item.id)}
+        >
           <Text style={[s.todo, item.completed && s.completed]}>
             {item.text}
           </Text>

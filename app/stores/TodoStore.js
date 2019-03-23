@@ -31,7 +31,6 @@ export const TodoStore = types
       const todo = {
         id: new Date().getTime().toString(),
         text,
-        completed: true,
         createdAt: new Date(),
         updatedAt: new Date(),
       };
