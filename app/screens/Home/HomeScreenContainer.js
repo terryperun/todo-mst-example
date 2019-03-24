@@ -12,7 +12,6 @@ export default compose(
     todoList: props.todo.asArray,
     addTodo: props.todo.add,
   })),
-  withProps(console.log),
   observer,
   withState('textInputValue', 'setTextInputValue', ''),
 
@@ -21,5 +20,8 @@ export default compose(
       props.addTodo(props.textInputValue);
       props.setTextInputValue('');
     },
+    // onChangeText: (props) => () => {
+
+    // }
   }),
 )(HomeScreenComponent);
