@@ -1,11 +1,11 @@
 import React from 'react';
-import { TouchableNativeFeedback, Text } from 'react-native';
+import { TouchableNativeFeedback, Text, View } from 'react-native';
 import { observer } from 'mobx-react';
 import s from './styles';
 
 const Todo = ({ item }) => {
   return (
-    <React.Fragment>
+    <View style={s.container}>
       <TouchableNativeFeedback
         onPress={() => item.toggleCompleted(item.id)}
       >
@@ -13,10 +13,10 @@ const Todo = ({ item }) => {
           {item.text}
         </Text>
       </TouchableNativeFeedback>
-      <TouchableNativeFeedback onPress={item.remove}>
+      <TouchableNativeFeedback onPress={item.remove} style={s.remove}>
         <Text>X</Text>
       </TouchableNativeFeedback>
-    </React.Fragment>
+    </View>
   );
 };
 

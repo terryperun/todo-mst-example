@@ -33,6 +33,9 @@ export const TodoStore = types
     get asArray() {
       return store.list.slice();
     },
+    get searchAsArray() {
+      return store.searchList.slice();
+    },
   }))
 
   .actions((store) => ({
@@ -48,9 +51,15 @@ export const TodoStore = types
     },
 
     remove(id) {
-      const index = store.list.findIndex((i) => i.id === id);
+      const indexInList = store.list.findIndex((i) => i.id === id);
+      const indexInSearch = store.searchList.findIndex((i) => i.id === id);
 
-      store.list.splice(index, 1);
+      if (indexInList > -1) {
+        store.list.splice(indexInList, 1);
+      }
+      if (indexInSearch > -1) {
+        store.searchList.splice(indexInSearch, 1);
+      }
     },
     suggest(text) {
       const fuse = new Fuse(store.asArray, {
